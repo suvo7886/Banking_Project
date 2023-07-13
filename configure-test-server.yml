@@ -15,4 +15,4 @@
     command: sudo systemctl start docker
     
   - name: deploy insurance project application
-    command: sudo docker run -itd -p 8084:8084 --name insurance-project suvo7886/insurance-project:1.0
+    command: sudo docker run -itd -p 8084:8084 --name insurance-project suvo7886/banking-project:1.0
