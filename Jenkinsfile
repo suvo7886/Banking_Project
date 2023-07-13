@@ -12,7 +12,7 @@ stages{
     stage('Checkout from Github') {
         steps{
          script{
-             checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github-Login1', url: 'https://github.com/suvo7886/Insurance_Project.git']])
+             checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github-Login1', url: 'https://github.com/suvo7886/Banking_Project.git']])
          }
            }
        }
@@ -25,7 +25,7 @@ stages{
     stage("Build with Docker "){
         steps {
             sh 'docker version'
-            sh "docker build -t suvo7886/insurance-project:v2 ."
+            sh "docker build -t suvo7886/banking-project:v2 ."
             sh 'docker image list'
 	echo "Image created"
             }
@@ -44,7 +44,7 @@ stages{
         }
         stage('Push to DockerHub') {
             steps {
-           sh "docker push suvo7886/insurance-project:v2"
+           sh "docker push suvo7886/banking-project:v2"
 	   echo "Push done"
             }
         }
