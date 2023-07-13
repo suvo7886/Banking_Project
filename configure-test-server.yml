@@ -1,0 +1,18 @@
+---
+- hosts: monitoring
+  become: true
+  tasks:
+  - name: update package
+    command: sudo yum update -y
+
+  - name: install docker
+    command: sudo yum install docker -y
+    
+  - name: start docker service
+    command: sudo systemctl enable docker 
+
+  - name: start docker service
+    command: sudo systemctl start docker
+    
+  - name: deploy insurance project application
+    command: sudo docker run -itd -p 8084:8084 --name insurance-project suvo7886/insurance-project:1.0
